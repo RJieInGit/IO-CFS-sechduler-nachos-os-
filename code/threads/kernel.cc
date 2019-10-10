@@ -101,6 +101,9 @@ Kernel::Initialize()
     synchConsoleIn = new SynchConsoleInput(consoleIn); // input from stdin
     synchConsoleOut = new SynchConsoleOutput(consoleOut); // output to stdout
     synchDisk = new SynchDisk();    //
+
+    ioAlarm =new ioAlarm();       //start up ioalarmer
+    ioEventQueue = new SortedList<ioRequest*>(IOCompare);
 #ifdef FILESYS_STUB
     fileSystem = new FileSystem();
 #else
@@ -111,6 +114,11 @@ Kernel::Initialize()
 
     interrupt->Enable();
 }
+//Compare function for the sortedList
+static int  IOCompare(ioRequest* i1,ioRequest* i2){
+    return i1->createStamp-i2->createStamp;
+}
+
 
 //----------------------------------------------------------------------
 // Kernel::~Kernel

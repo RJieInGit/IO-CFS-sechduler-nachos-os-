@@ -1,6 +1,7 @@
 #include "kernel.h"
 #include "main.h"
 #include "thread.h"
+#include "../machine/io.h"
 
 void
 SimpleThread(int which)
@@ -16,8 +17,25 @@ SimpleThread(int which)
 void
 ThreadTest()
 {
-    Thread *t = new Thread("forked thread");
+    Thread *t = new Thread("thread1");
     t->Fork((VoidFunctionPtr) SimpleThread, (void *) 1);
     
-    SimpleThread(0);
+}
+
+
+void TestIO(){
+Thread *t = new Thread("thread0");
+    t->Fork((VoidFunctionPtr) io::iowrite, (void *)0);
+    Thread *t1 = new Thread("thread1");
+    t->Fork((VoidFunctionPtr) io::iowrite, (void *)0);
+    Thread *t2 = new Thread("thread2");
+    t->Fork((VoidFunctionPtr) io::iowrite, (void *)0);
+    Thread *t = new Thread("thread3");
+    t->Fork((VoidFunctionPtr) io::ioread, (void *) 0);
+    Thread *t = new Thread("thread4");
+    t->Fork((VoidFunctionPtr) io::ioread, (void *) 0);
+    Thread *t = new Thread("thread5");
+    t->Fork((VoidFunctionPtr) io::iowrite, (void *) 0);
+    Thread *t = new Thread("thread1");
+    t->Fork((VoidFunctionPtr) io::ioread, (void *) 0);
 }

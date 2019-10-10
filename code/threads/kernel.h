@@ -18,6 +18,8 @@
 #include "alarm.h"
 #include "filesys.h"
 #include "machine.h"
+#include "ioAlarm.h"
+#include "../lib/list.h"
 
 class PostOfficeInput;
 class PostOfficeOutput;
@@ -56,6 +58,10 @@ class Kernel {
     FileSystem *fileSystem;     
     PostOfficeInput *postOfficeIn;
     PostOfficeOutput *postOfficeOut;
+
+    IoAlarm *ioAlarm;
+    SortedList<ioRequest*> *ioEventQueue;
+
 
     int hostName;               // machine identifier
 
