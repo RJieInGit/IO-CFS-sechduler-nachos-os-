@@ -6,10 +6,10 @@
 // The following class defines a hardware timer. 
 class ioTimer : public CallBackObj {
   public:
-    iOTimer(CallBackObj *toCall);
+    ioTimer(CallBackObj *toCall);
 				// Initialize the timer, and callback to "toCall"
 				// every time slice.
-    virtual ~iOTimer() {}
+    virtual ~ioTimer() {}
     
     void Disable() { disable = TRUE; }
     				// Turn timer device off, so it doesn't

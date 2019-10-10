@@ -4,7 +4,7 @@
 class ioAlarm : public CallBackObj{
     public :
         ioAlarm();    //we get random pending tiem from iorequest
-        ~ioAlarm() {delete iotimer}; 
+        ~ioAlarm(); {delete iotimer}; 
         
         ioRequest *currentRequest;
     private : 

@@ -59,7 +59,7 @@ class Kernel {
     PostOfficeInput *postOfficeIn;
     PostOfficeOutput *postOfficeOut;
 
-    IoAlarm *ioAlarm;
+    ioAlarm *ioAlarm;
     SortedList<ioRequest*> *ioEventQueue;
 
 
