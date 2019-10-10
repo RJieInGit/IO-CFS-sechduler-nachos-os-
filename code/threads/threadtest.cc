@@ -17,8 +17,7 @@ SimpleThread(int which)
 void
 ThreadTest()
 {
-    Thread *t = new Thread("thread1");
-    t->Fork((VoidFunctionPtr) SimpleThread, (void *) 1);
+    TestIO();
     
 }
 
