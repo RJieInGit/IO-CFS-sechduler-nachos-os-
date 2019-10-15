@@ -21,6 +21,7 @@ void ioTimer :: CallBack(){
 }
 
 void ioTimer::SetInterrupt(ioRequest* req){
+    printf("here4\n");
     if(!disable){
         int delay =req->pendingTick;
         kernel->interrupt->Schedule(this,delay,IoInt);
