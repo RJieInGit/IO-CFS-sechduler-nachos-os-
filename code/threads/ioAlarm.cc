@@ -10,8 +10,6 @@ ioAlarm:: ioAlarm(){
 }
 
 void ioAlarm :: CallBack(){
-     Interrupt *interrupt = kernel->interrupt;
-    MachineStatus status = interrupt->getStatus();
     printf("IOALARMER CALLBACK at %d \n",kernel->stats->totalTicks);
     Interrupt *interrupt = kernel->interrupt;
     MachineStatus status = interrupt->getStatus();
