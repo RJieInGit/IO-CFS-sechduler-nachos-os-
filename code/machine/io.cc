@@ -4,9 +4,10 @@
 ioRequest:: ioRequest(requestType t, Thread *parent){
     parentThread= parent;
     type=t;
-    int random= rand()%10;
+    int random= (rand()%10)*100;
     if(type==requestType::ioread)
         random=random*100;
+    pendingTick=random;
     createStamp= kernel->stats->totalTicks;
 }
 
