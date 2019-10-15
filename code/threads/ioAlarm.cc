@@ -5,7 +5,7 @@
 #include "main.h"
 
 ioAlarm:: ioAlarm(){
-    iotimer =new IoTimer(this);
+    IoTimere *iotimer =new IoTimer(this);
     ioHandler *ihandler =new ioHandler();
 }
 
@@ -17,7 +17,7 @@ void ioAlarm :: CallBack(){
     ihandler->wakeUp(currentRequest);
       ioRequest *req = ihandler->getNextInterrupt();
     if(req !=NULL){
-        iotime->SetInterrupt(req);
+        iotimer->SetInterrupt(req);
         currentRequest = req;
     }
     else{
