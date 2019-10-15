@@ -8,6 +8,7 @@
 //initialize a ioTimer and set the interrupt if the eventQueue is not empty
  ioTimer:: ioTimer(CallBackObj *toCall){
     ioCallBack =toCall;
+    SetInterrupt();
 }
 
 void ioTimer :: CallBack(){
@@ -18,7 +19,7 @@ void ioTimer :: CallBack(){
 void ioTimer::SetInterrupt(ioRequest* req){
        // printf("set ioint now \n");
         //ASSERT(req!=NULL);
-        int delay =req->pendingTick;
+        int delay =TimerTicks；
         IntType t= IoInt;
         kernel->interrupt->Schedule(this,delay,t);
 }
