@@ -17,7 +17,6 @@ SimpleThread(int which)
 
 void IObound(){
     printf("here1\n");
-Thread *t = new Thread("thread0");
    io::iowrite(0);
    io::iowrite(1);
    io::ioread(0);
@@ -29,7 +28,8 @@ void
 ThreadTest()
 {
     printf("here0\n");
-    IObound();
+    Thread *IO =new Thread("IObound");
+    IO->Fork((VoidFunctionPtr)IObound,(void*)1);
     
 }
 
