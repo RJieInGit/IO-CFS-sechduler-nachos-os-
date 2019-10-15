@@ -36,7 +36,7 @@ void io:: iowrite(int arg){
     printf("write iorequest created at %d tick, the io thread is %s \n",kernel->stats->totalTicks,kernel->currentThread->getName());
     requestType write =requestType:: iowrite;
     ioRequest* req=new ioRequest(write,kernel->currentThread);
-    printf("here4\n");
+    
     if(kernel->IoAlarm->currentRequest!=NULL){
          kernel->ioEventQueue->Insert(req);
     }
@@ -44,6 +44,7 @@ void io:: iowrite(int arg){
         kernel->IoAlarm->currentRequest=req;
         kernel->IoAlarm->iotimer->SetInterrupt(req);
     }
+    printf("here4\n");
     kernel->currentThread->Sleep(false);
     //print after callback from alarmer, which simulate the execution time
     printf("%s :write some content as an iorequest at :%d ticks \n",kernel->stats->totalTicks);
