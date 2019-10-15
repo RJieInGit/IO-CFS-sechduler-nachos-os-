@@ -26,7 +26,8 @@ ioRequest:: ioRequest(requestType t, Thread *parent){
     kernel->currentThread->Sleep(false);
     kernel->interrupt->SetLevel(IntOn);
     //print after callback from alarmer, which simulate the execution time
-    printf("read some content as an iorequest, ioread finished currentTick: %d\n",kernel->stats->totalTicks);
+    printf("\n\n\n-----------------------------------------------------------------------\n");
+    printf("%s read some content as an iorequest, ioread finished currentTick: %d , created at %d ticks\n\n\n",kernel->currentThread->getName(),kernel->stats->totalTicks,req->createStamp);
     
     //just simulate output, input depends on user so that is unable to simulate
 } 
@@ -45,7 +46,7 @@ printf("write iorequest created at %d tick, the io thread is %s the exetime is :
     printf("write thread wake up\n\n");
     //print after callback from alarmer, which simulate the execution time
     printf("\n\n\n-----------------------------------------------------------------------\n");
-    printf("%s :write some content as an iorequest at :%d ticks, request created at %d ticks \n",kernel->currentThread->getName(),kernel->stats->totalTicks,req->createStamp);
+    printf("%s :write some content as an iorequest at :%d ticks, request created at %d ticks \n\n\n",kernel->currentThread->getName(),kernel->stats->totalTicks,req->createStamp);
     
     //just simulate output, input depends on user so that is unable to simulate
 }
