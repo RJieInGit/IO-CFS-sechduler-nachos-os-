@@ -22,7 +22,7 @@ void ioTimer :: CallBack(){
 }
 
 void ioTimer::SetInterrupt(ioRequest* req){
-        printf("set ioint now %s \n",req->type);
+        printf("set ioint now \n");
         int delay =req->pendingTick;
         IntType t= IoInt;
         kernel->interrupt->Schedule(this,delay,t);
