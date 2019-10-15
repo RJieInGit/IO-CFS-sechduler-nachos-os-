@@ -15,7 +15,14 @@ void ioAlarm :: CallBack(){
 
     //wake up the blocked parent thread
     ihandler->wakeUp(currentRequest);
-    
+      ioRequest *req = ihandler->getNextInterrupt();
+    if(req !=NULL){
+        SetInterrupt(req);
+        currentRequest = req;
+    }
+    else{
+        currentRequest=NULL;
+    }
 
     if (status != IdleMode) {
 	interrupt->YieldOnReturn();

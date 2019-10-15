@@ -17,14 +17,7 @@ void ioTimer:: ioTimer(CallBackObj *toCall){
 
 void ioTimer :: CallBack(){
     ioCallBack->CallBack();
-    ioRequest *req = ihandler->getNextInterrupt();
-    if(req !=NULL){
-        SetInterrupt(req);
-        ioCallBack->currentRequest = req;
-    }
-    else{
-        ioCallBack->currentRequest=NULL;
-    }
+   
 }
 
 void ioTimer::SetInterrupt(ioRequest* req){
