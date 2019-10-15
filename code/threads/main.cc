@@ -265,7 +265,7 @@ printf("good start2\n");
     kernel = new Kernel(argc, argv);
 printf("good start3\n");
     kernel->Initialize();
-
+printf("good start4\n");
     CallOnUserAbort(Cleanup);		// if user hits ctl-C
 
     // at this point, the kernel is ready to do something
@@ -309,7 +309,7 @@ printf("good start3\n");
     // other threads on the ready list (started in SelfTest).  
     // We switch to those threads by saying that the "main" thread 
     // is finished, preventing it from returning.
-    printf("good start4\n");
+    
     kernel->currentThread->Finish();  
     
     ASSERTNOTREACHED();
