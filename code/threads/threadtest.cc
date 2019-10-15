@@ -19,6 +19,7 @@ void IObound(int arg){
     io::iowrite(1);
     io::iowrite(2);
     io::ioread(1);
+    return;
 }
 
 void
@@ -26,5 +27,6 @@ ThreadTest()
 {
     Thread *t = new Thread("IObound thread");
     t->Fork((VoidFunctionPtr) IObound, (void *) 1);
+    return;
 }
 
