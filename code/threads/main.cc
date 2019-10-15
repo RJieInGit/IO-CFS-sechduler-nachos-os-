@@ -198,6 +198,7 @@ main(int argc, char **argv)
     // some command line arguments are handled here.
     // those that set kernel parameters are handled in
     // the Kernel constructor
+    printf("good start\n");
     for (i = 1; i < argc; i++) {
         if (strcmp(argv[i], "-d") == 0) {
 	    ASSERT(i + 1 < argc);   // next argument is debug string
@@ -260,9 +261,9 @@ main(int argc, char **argv)
     debug = new Debug(debugArg);
     
     DEBUG(dbgThread, "Entering main");
-
+printf("good start2\n");
     kernel = new Kernel(argc, argv);
-
+printf("good start3\n");
     kernel->Initialize();
 
     CallOnUserAbort(Cleanup);		// if user hits ctl-C
