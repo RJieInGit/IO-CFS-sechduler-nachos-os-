@@ -318,9 +318,9 @@ Interrupt::CheckIfDue(bool advanceClock)
         printf("here5\n");
         ASSERT(next!=NULL);
         //ASSERT(next->type!=NULL);
-        printf("int type :%s , when : %d \n ",next->type,next->when);
+        printf("int type : , when : %d \n ",next->when);
         next->callOnInterrupt->CallBack();// call the interrupt handler
-        printf("int type :%s , when : %d \n ",next->type,next->when);
+        printf("int type : , when : %d \n ",next->when);
 	delete next;
     } while (!pending->IsEmpty() 
     		&& (pending->Front()->when <= stats->totalTicks));
