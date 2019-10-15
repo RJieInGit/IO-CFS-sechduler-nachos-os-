@@ -20,7 +20,7 @@ void ioAlarm :: CallBack(){
     while(!kernel->ioEventQueue->IsEmpty()){
         ioRequest *req=kernel->ioEventQueue->RemoveFront();
         if(req->pendingTick<=kernel->stats->totalTicks)
-            ihandler->wakeUp(currentRequest);
+            ihandler->wakeUp(req);
         else
         {
             temp.Append(req);
