@@ -10,7 +10,7 @@ ioAlarm:: ioAlarm(){
 }
 
 void ioAlarm :: CallBack(){
-    printf("IOALARMER CALLBACK! \n");
+    printf("IOALARMER CALLBACK at %d \n",kernel->stats->totalTicks);
     Interrupt *interrupt = kernel->interrupt;
     MachineStatus status = interrupt->getStatus();
 
@@ -27,7 +27,6 @@ void ioAlarm :: CallBack(){
         }
         else
         {
-            printf("io in queue %d \n",kernel->ioEventQueue->NumInList());
             temp.Append(req);
         }
     }
