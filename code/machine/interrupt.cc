@@ -325,7 +325,6 @@ Interrupt::CheckIfDue(bool advanceClock)
 	delete next;
     } while (!pending->IsEmpty() 
     		&& (pending->Front()->when <= stats->totalTicks));
-      printf("here6\n");
     inHandler = FALSE;
     return TRUE;
 }
