@@ -1,7 +1,6 @@
 #include "kernel.h"
 #include "main.h"
 #include "thread.h"
-#include "../machine/io.h"
 
 void
 SimpleThread(int which)
@@ -14,26 +13,18 @@ SimpleThread(int which)
     }
 }
 
-
-void IObound(){
-    printf("here1\n");
-   io::iowrite(0);
-   io::iowrite(1);
-   io::ioread(0);
-   io::iowrite(2);
-   io::ioread(1);
-    
+void IObound(int arg){
+    io::iowrite(0);
+    io::ioread(0);
+    io::iowrite(1);
+    io::iowrite(2);
+    io::ioread(1);
 }
+
 void
 ThreadTest()
 {
-    printf("here0\n");
-    Thread *IO =new Thread("IObound");
-    IO->Fork((VoidFunctionPtr)IObound,(void*)1);
-    while(1){
-        kernel->Yield();
-        kernel->interrupt->OneTick();
-    }
+    Thread *t = new Thread("IObound thread");
+    t->Fork((VoidFunctionPtr) IObound, (void *) 1);
 }
-
 
