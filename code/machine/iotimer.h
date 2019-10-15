@@ -18,7 +18,7 @@ class ioTimer : public CallBackObj {
     void CallBack();		// called internally when the hardware
 				// timer generates an interrupt
 
-    void SetInterrupt(ioRequest* req);  	// cause an interrupt to occur in the
+    void SetInterrupt();  	// cause an interrupt to occur in the
     				// the future after a fixed or random
 				// delay
 
