@@ -69,6 +69,7 @@ Timer::CallBack()
 void
 Timer::SetInterrupt() 
 {
+    printf("set timeint \n");
     if (!disable) {
        int delay = TimerTicks;
     
