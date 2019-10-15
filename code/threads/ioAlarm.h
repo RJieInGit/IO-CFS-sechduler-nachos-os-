@@ -7,8 +7,9 @@ class ioAlarm : public CallBackObj{
         ~ioAlarm() {delete iotimer;}; 
         
         ioRequest *currentRequest;
-    private : 
         ioHandler *ihandler;
         ioTimer *iotimer;
+    private : 
+       
         void CallBack(); //called when a iorequest is finished
 };
