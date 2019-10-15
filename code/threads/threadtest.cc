@@ -31,7 +31,7 @@ void CPUbound(int arg){
 void
 ThreadTest()
 {
-    Thread *t = new Thread("IObound thread");
+    Thread *t = new Thread("IObound thread0");
     t->Fork((VoidFunctionPtr) IObound, (void *) 1);
     Thread *t1 =new Thread("CPU bound 0");
     t1->Fork((VoidFunctionPtr)CPUbound,(void*)1);
