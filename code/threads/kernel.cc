@@ -107,7 +107,7 @@ Kernel::Initialize()
     synchDisk = new SynchDisk();    //
 
     //IoAlarm =new ioAlarm();       //start up ioalarmer
-    //ioEventQueue = new SortedList<ioRequest*>(IOCompare);
+    ioEventQueue = new SortedList<ioRequest*>(IOCompare);
 #ifdef FILESYS_STUB
     fileSystem = new FileSystem();
 #else
