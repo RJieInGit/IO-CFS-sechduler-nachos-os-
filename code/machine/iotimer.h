@@ -14,6 +14,12 @@ class ioTimer : public CallBackObj {
     void Disable() { disable = TRUE; }
     				// Turn timer device off, so it doesn't
 				// generate any more interrupts.
+    void CallBack();		// called internally when the hardware
+				// timer generates an interrupt
+
+    void SetInterrupt(ioRequest* req);  	// cause an interrupt to occur in the
+    				// the future after a fixed or random
+				// delay
 
   private:
     int ticks;         //the simulated pending ticks before we finish the iorequest
@@ -21,12 +27,7 @@ class ioTimer : public CallBackObj {
     bool disable;		// turn off the timer device after next
     				// interrupt.
     
-    void CallBack();		// called internally when the hardware
-				// timer generates an interrupt
-
-    void SetInterrupt(ioRequest* req);  	// cause an interrupt to occur in the
-    				// the future after a fixed or random
-				// delay
+   
     ioHandler *ihandler;
     
 };

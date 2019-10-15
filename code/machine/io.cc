@@ -13,7 +13,7 @@ ioRequest:: ioRequest(requestType t, Thread *parent){
 
 
 static void io:: ioread(int arg){
-    ioRequest* req=new ioRequest(ioread,this);
+    ioRequest* req=new ioRequest(ioread,kernel->currentThread);
     // if there is no current running iorequest then set up the interrupt
     if(kernel->IoAlarm->currentRequest!=NULL){
          kernel->IoEventQueue->Append(req);
@@ -24,7 +24,7 @@ static void io:: ioread(int arg){
         kernel->IoAlarm->iotimer->SetInterrupt(req);
     }
 
-    kernel-currentThread->Sleep(false);
+    kernel->currentThread->Sleep(false);
     //print after callback from alarmer, which simulate the execution time
     printf("read some content as an iorequest\n");
     
@@ -32,7 +32,7 @@ static void io:: ioread(int arg){
 } 
 
 static void io:: iowrite(int arg){
-    ioRequest* req=new ioRequest(iowrite,this);
+    ioRequest* req=new ioRequest(iowrite,kernel->currentThread);
     if(kernel->IoAlarm->currentRequest!=NULL){
          kernel->IoEventQueue->Append(req);
     }
