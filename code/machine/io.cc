@@ -15,13 +15,13 @@ ioRequest:: ioRequest(requestType t, Thread *parent){
 static void io:: ioread(int arg){
     ioRequest* req=new ioRequest(ioread,this);
     // if there is no current running iorequest then set up the interrupt
-    if(kernel->ioAlarm->currentRequest!=NULL){
-         kernel->ioEventQueue->Append(req);
+    if(kernel->IoAlarm->currentRequest!=NULL){
+         kernel->IoEventQueue->Append(req);
     }
     //if there is an running iorequest then put the request in eventqueue.
     else{
-        kernel->ioAlarm->currentRequest=req;
-        kernel->ioAlarm->iotimer->SetInterrupt(req);
+        kernel->IoAlarm->currentRequest=req;
+        kernel->IoAlarm->iotimer->SetInterrupt(req);
     }
 
     kernel-currentThread->Sleep(false);
@@ -33,12 +33,12 @@ static void io:: ioread(int arg){
 
 static void io:: iowrite(int arg){
     ioRequest* req=new ioRequest(iowrite,this);
-    if(kernel->ioAlarm->currentRequest!=NULL){
-         kernel->ioEventQueue->Append(req);
+    if(kernel->IoAlarm->currentRequest!=NULL){
+         kernel->IoEventQueue->Append(req);
     }
     else{
-        kernel->ioAlarm->currentRequest=req;
-        kernel->ioAlarm->iotimer->SetInterrupt(req);
+        kernel->IoAlarm->currentRequest=req;
+        kernel->IoAlarm->iotimer->SetInterrupt(req);
     }
     kernel-currentThread->Sleep(false);
     //print after callback from alarmer, which simulate the execution time
