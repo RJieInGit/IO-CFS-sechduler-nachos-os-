@@ -28,7 +28,7 @@ ioRequest:: ioRequest(requestType t, Thread *parent){
     }
     kernel->interrupt->SetLevel(IntOff);
     kernel->currentThread->Sleep(false);
-    //kernel->interrupt->SetLevel(IntOn);
+    kernel->interrupt->SetLevel(IntOn);
     //print after callback from alarmer, which simulate the execution time
     printf("read some content as an iorequest, ioread finished currentTick: %d\n",kernel->stats->totalTicks);
     
@@ -46,7 +46,9 @@ void io:: iowrite(int arg){
         kernel->IoAlarm->currentRequest=req;
         kernel->IoAlarm->iotimer->SetInterrupt(req);
     }
+    kernel->interrupt->SetLevel(IntOff);
     kernel->currentThread->Sleep(false);
+    kernel->interrupt->SetLevel(IntOn);
     //print after callback from alarmer, which simulate the execution time
     printf("%s :write some content as an iorequest at :%d ticks \n",kernel->stats->totalTicks);
     
