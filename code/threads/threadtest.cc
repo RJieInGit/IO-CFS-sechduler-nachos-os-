@@ -21,12 +21,17 @@ void IObound(int arg){
     io::ioread(1);
     return;
 }
+void CPUbound(int arg){
+    kernel->interrupt->OneTick();
+}
 
 void
 ThreadTest()
 {
     Thread *t = new Thread("IObound thread");
     t->Fork((VoidFunctionPtr) IObound, (void *) 1);
+    Thread *t1 =new Thread("CPU bound 0");
+    t1->Fork((VoidFunctionPtr)CPUbound,(void*)1);
     return;
 }
 
