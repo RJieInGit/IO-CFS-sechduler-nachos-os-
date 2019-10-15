@@ -105,9 +105,10 @@ Kernel::Initialize()
     synchConsoleIn = new SynchConsoleInput(consoleIn); // input from stdin
     synchConsoleOut = new SynchConsoleOutput(consoleOut); // output to stdout
     synchDisk = new SynchDisk();    //
-
-    IoAlarm =new ioAlarm();       //start up ioalarmer
+     
     ioEventQueue = new SortedList<ioRequest*>(IOCompare);
+    IoAlarm =new ioAlarm();       //start up ioalarmer
+    
 #ifdef FILESYS_STUB
     fileSystem = new FileSystem();
 #else
