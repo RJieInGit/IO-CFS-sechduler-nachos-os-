@@ -5,8 +5,8 @@
 #include "main.h"
 
 ioAlarm:: ioAlarm(){
-    //ioTimer *iotimer =new ioTimer(this);
     ioHandler *ihandler =new ioHandler();
+    ioTimer *iotimer =new ioTimer(this);
 }
 
 void ioAlarm :: CallBack(){
