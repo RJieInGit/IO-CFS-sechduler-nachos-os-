@@ -5,7 +5,7 @@
 #include "main.h"
 
 ioAlarm:: ioAlarm(){
-    IoTimere *iotimer =new IoTimer(this);
+    IoTimere *iotimer =new ioTimer(this);
     ioHandler *ihandler =new ioHandler();
 }
 
