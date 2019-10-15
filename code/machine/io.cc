@@ -4,7 +4,7 @@
 ioRequest:: ioRequest(requestType t, Thread *parent){
     parentThread= parent;
     type=t;
-    int random= (rand()%10)*100;
+    int random= (rand()%5)*100;
     if(type==requestType::ioread)
         random=random*10;
     pendingTick=random+kernel->stats->totalTicks;
@@ -25,10 +25,9 @@ ioRequest:: ioRequest(requestType t, Thread *parent){
     kernel->interrupt->SetLevel(IntOff);
     kernel->currentThread->Sleep(false);
     kernel->interrupt->SetLevel(IntOn);
-    printf("\n\n\n read thread wake up");
+    printf("\n read thread wake up");
     //print after callback from alarmer, which simulate the execution time
-    printf("-----------------------------------------------------------------------\n");
-    printf("%s read some content as an iorequest, ioread finished currentTick: %d , created at %d ticks\n\n\n",kernel->currentThread->getName(),kernel->stats->totalTicks,req->createStamp);
+    printf("%s read some content as an iorequest, ioread finished currentTick: %d , created at %d ticks\n",kernel->currentThread->getName(),kernel->stats->totalTicks,req->createStamp);
     
     //just simulate output, input depends on user so that is unable to simulate
 } 
@@ -44,10 +43,10 @@ printf("\nwrite iorequest created at %d tick, the io thread is %s the exetime is
     kernel->interrupt->SetLevel(IntOff);
     kernel->currentThread->Sleep(false);
     kernel->interrupt->SetLevel(IntOn);
-    printf("\n\nwrite thread wake up\n\n");
+    printf("\nwrite thread wake up\n");
     //print after callback from alarmer, which simulate the execution time
-    printf("-----------------------------------------------------------------------\n");
-    printf("%s :write some content as an iorequest at :%d ticks, request created at %d ticks \n\n\n",kernel->currentThread->getName(),kernel->stats->totalTicks,req->createStamp);
+
+    printf("%s :write some content as an iorequest at :%d ticks, request created at %d ticks \n",kernel->currentThread->getName(),kernel->stats->totalTicks,req->createStamp);
     
     //just simulate output, input depends on user so that is unable to simulate
 }

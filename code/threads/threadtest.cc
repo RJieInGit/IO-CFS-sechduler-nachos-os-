@@ -29,13 +29,17 @@ void CPUbound(int arg){
 }
 void MIXbound(int arg){
     io::iowrite(0);
+    printf("%s thread compute start at %d\n",kernel->currentThread->getName(),kernel->stats->totalTicks);
     for(int i=0;i<150;i++){
         kernel->interrupt->OneTick();
     }
+    printf("%s thread compute finish at %d\n",kernel->currentThread->getName(),kernel->stats->totalTicks);
     io::ioread(0);
+    printf("%s thread compute start at %d\n",kernel->currentThread->getName(),kernel->stats->totalTicks);
      for(int i=0;i<250;i++){
         kernel->interrupt->OneTick();
     }
+    printf("%s thread compute finish at %d\n",kernel->currentThread->getName(),kernel->stats->totalTicks);
     io::iowrite(1);
      for(int i=0;i<200;i++){
         kernel->interrupt->OneTick();

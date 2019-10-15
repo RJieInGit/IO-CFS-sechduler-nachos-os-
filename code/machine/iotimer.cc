@@ -16,6 +16,7 @@ void ioTimer :: CallBack(){
     ioCallBack->CallBack();
     SetInterrupt();
    // printf("IOTIMER callback finished! \n");
+   printf("----------------------------tick: %d ----------------------------------------\n",kernel->stats->totalTicks);
 }
 
 void ioTimer::SetInterrupt(){
