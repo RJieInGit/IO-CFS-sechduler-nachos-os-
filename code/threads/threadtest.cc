@@ -38,6 +38,7 @@ Thread *t = new Thread("thread0");
 void
 ThreadTest()
 {
+    printf("here0\n");
     TestIO();
     
 }
