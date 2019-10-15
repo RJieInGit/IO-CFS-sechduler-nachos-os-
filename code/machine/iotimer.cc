@@ -19,7 +19,7 @@ void ioTimer :: CallBack(){
 void ioTimer::SetInterrupt(ioRequest* req){
        // printf("set ioint now \n");
         //ASSERT(req!=NULL);
-        int delay =TimerTicks；
+        int delay =TimerTicks;
         IntType t= IoInt;
         kernel->interrupt->Schedule(this,delay,t);
 }
