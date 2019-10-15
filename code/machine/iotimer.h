@@ -2,6 +2,7 @@
 #include "utility.h"
 #include "callback.h"
 #include "./io.h"
+#pragma once 
 
 // The following class defines a hardware timer. 
 class ioTimer : public CallBackObj {
