@@ -42,7 +42,7 @@ printf("write iorequest created at %d tick, the io thread is %s the exetime is :
     kernel->interrupt->SetLevel(IntOff);
     kernel->currentThread->Sleep(false);
     printf("write thread wake up");
-    kernel->interrupt->SetLevel(IntOn);
+    //kernel->interrupt->SetLevel(IntOn);
     printf("write thread wake up");
     //print after callback from alarmer, which simulate the execution time
     printf("%s :write some content as an iorequest at :%d ticks \n",kernel->stats->totalTicks);
