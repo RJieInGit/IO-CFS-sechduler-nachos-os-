@@ -45,7 +45,7 @@ void io:: iowrite(int arg){
     }
     kernel->currentThread->Sleep(false);
     //print after callback from alarmer, which simulate the execution time
-    printf("%s :write some content as an iorequest at :%d ticks \n",kernel->stats->totalTicks;
+    printf("%s :write some content as an iorequest at :%d ticks \n",kernel->stats->totalTicks);
     
     //just simulate output, input depends on user so that is unable to simulate
 }
