@@ -8,8 +8,7 @@
 //initialize a ioTimer and set the interrupt if the eventQueue is not empty
  ioTimer:: ioTimer(CallBackObj *toCall){
     ioCallBack =toCall;
-    ihandler = tocall->ihandler;
-    ioRequest *req = ihandler->getNextInterrupt();
+    ioRequest *req = tocall->ihandler->getNextInterrupt();
     if(req !=NULL){
         SetInterrupt(req);
     }
