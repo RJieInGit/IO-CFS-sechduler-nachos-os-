@@ -314,14 +314,14 @@ Interrupt::CheckIfDue(bool advanceClock)
 
     inHandler = TRUE;
     do {
-          printf("here4\n");
+          //printf("here4\n");
         next = pending->RemoveFront();    // pull interrupt off list
-        printf("here5\n");
-        ASSERT(next->callOnInterrupt!=NULL);
+        //printf("here5\n");
+        //ASSERT(next->callOnInterrupt!=NULL);
         //ASSERT(next->type!=NULL);
-        printf("int type : , when : %d \n ",next->when);
+        //printf("int type : , when : %d \n ",next->when);
         next->callOnInterrupt->CallBack();// call the interrupt handler
-        printf("int type : , when : %d \n ",next->when);
+       //printf("int type : , when : %d \n ",next->when);
 	delete next;
     } while (!pending->IsEmpty() 
     		&& (pending->Front()->when <= stats->totalTicks));
