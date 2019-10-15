@@ -10,20 +10,18 @@ ioAlarm:: ioAlarm(){
 }
 
 void ioAlarm :: CallBack(){
-    printf("IOALARMER CALLBACK at %d \n",kernel->stats->totalTicks);
+    //printf("IOALARMER CALLBACK at %d \n",kernel->stats->totalTicks);
     Interrupt *interrupt = kernel->interrupt;
     MachineStatus status = interrupt->getStatus();
 
     //wake up the blocked parent thread
-    printf("try wake up all\n");
+    //printf("try wake up all\n");
     List<ioRequest*> temp;
     
     while(!kernel->ioEventQueue->IsEmpty()){
         ioRequest *req=kernel->ioEventQueue->RemoveFront();
         if(req->pendingTick<=kernel->stats->totalTicks){
-            printf("here\n");
             ihandler->wakeUp(req);
-            printf("here2\n");
         }
         else
         {
@@ -34,6 +32,6 @@ void ioAlarm :: CallBack(){
         kernel->ioEventQueue->Insert(temp.RemoveFront());
     }
 
-    printf("waken up all \n");
+   // printf("waken up all \n");
 
 }

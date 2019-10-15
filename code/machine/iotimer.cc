@@ -12,10 +12,10 @@
 }
 
 void ioTimer :: CallBack(){
-    printf("IOTIMER callback! \n");
+   // printf("IOTIMER callback! \n");
     ioCallBack->CallBack();
     SetInterrupt();
-    printf("IOTIMER callback finished! \n");
+   // printf("IOTIMER callback finished! \n");
 }
 
 void ioTimer::SetInterrupt(){
