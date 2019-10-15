@@ -16,7 +16,7 @@
 }
 
 void ioTimer :: CallBack(){
-    pringf("IOTIMER callback! \n");
+    printf("IOTIMER callback! \n");
     ioCallBack->CallBack();
    
 }
