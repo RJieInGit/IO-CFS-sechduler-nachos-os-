@@ -309,6 +309,7 @@ printf("good start3\n");
     // other threads on the ready list (started in SelfTest).  
     // We switch to those threads by saying that the "main" thread 
     // is finished, preventing it from returning.
+    printf("good start4\n");
     kernel->currentThread->Finish();  
     
     ASSERTNOTREACHED();
