@@ -16,8 +16,10 @@ SimpleThread(int which)
 
 
 void TestIO(){
+    printf("here1\n");
 Thread *t = new Thread("thread0");
     t->Fork((VoidFunctionPtr) io::iowrite, (void *)0);
+    printf("here2\n");
     Thread *t1 = new Thread("thread1");
     t1->Fork((VoidFunctionPtr) io::iowrite, (void *)0);
     Thread *t2 = new Thread("thread2");
@@ -25,11 +27,13 @@ Thread *t = new Thread("thread0");
     Thread *t3 = new Thread("thread3");
     t3->Fork((VoidFunctionPtr) io::ioread, (void *) 0);
     Thread *t4 = new Thread("thread4");
+    printf("here3\n");
     t4->Fork((VoidFunctionPtr) io::ioread, (void *) 0);
     Thread *t5 = new Thread("thread5");
     t5->Fork((VoidFunctionPtr) io::iowrite, (void *) 0);
     Thread *t6 = new Thread("thread6");
     t6->Fork((VoidFunctionPtr) io::ioread, (void *) 0);
+    printf("here4\n");
 }
 void
 ThreadTest()
