@@ -317,7 +317,7 @@ Interrupt::CheckIfDue(bool advanceClock)
         next = pending->RemoveFront();    // pull interrupt off list
         printf("here5\n");
         ASSERT(next!=NULL);
-        ASSERT(next->callOnInterrupt!=NULL);
+        ASSERT(next->type!=NULL);
         printf("int type :%s , when : %d \n ",next->type,next->when);
         next->callOnInterrupt->CallBack();// call the interrupt handler
         printf("int type :%s , when : %d \n ",next->type,next->when);
