@@ -44,7 +44,7 @@ printf("write iorequest created at %d tick, the io thread is %s the exetime is :
     kernel->interrupt->SetLevel(IntOn);
     printf("write thread wake up\n\n");
     //print after callback from alarmer, which simulate the execution time
-    printf("----------------------------------------------------------------------------------------\n");
+    printf("\n\n\n-----------------------------------------------------------------------\n");
     printf("%s :write some content as an iorequest at :%d ticks, request created at %d ticks \n",kernel->currentThread->getName(),kernel->stats->totalTicks,req->createStamp);
     
     //just simulate output, input depends on user so that is unable to simulate
