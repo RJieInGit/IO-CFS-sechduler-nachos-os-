@@ -17,8 +17,8 @@ void ioAlarm :: CallBack(){
     //wake up the blocked parent thread
     printf("try wake up all\n");
     List<ioRequest*> temp;
+    printf("io in queue %d \n",kernel->ioEventQueue->NumInList());
     while(!kernel->ioEventQueue->IsEmpty()){
-        printf("here111111\n");
         ioRequest *req=kernel->ioEventQueue->RemoveFront();
         if(req->pendingTick<=kernel->stats->totalTicks){
             printf("here\n");
