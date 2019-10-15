@@ -27,7 +27,21 @@ void CPUbound(int arg){
     kernel->interrupt->OneTick();
     }
 }
+void MIXbound(int arg){
+    io::iowrite(0);
+    for(int i=0;i<150;i++){
+        kernel->interrupt->OneTick();
+    }
+    io::ioread(0);
+     for(int i=0;i<250;i++){
+        kernel->interrupt->OneTick();
+    }
+    io::iowrite(1);
+     for(int i=0;i<200;i++){
+        kernel->interrupt->OneTick();
+    }
 
+}
 void
 ThreadTest()
 {
@@ -35,6 +49,14 @@ ThreadTest()
     t->Fork((VoidFunctionPtr) IObound, (void *) 1);
     Thread *t1 =new Thread("CPU bound 0");
     t1->Fork((VoidFunctionPtr)CPUbound,(void*)1);
+    Thread *t2 =new Thread("MIX bound 0");
+    t2->Fork((VoidFunctionPtr)MIXbound,(void*)1);
+    Thread *t3 =new Thread("IO bound 1");
+    t3->Fork((VoidFunctionPtr)IObound,(void*)1);
+    Thread *t4 =new Thread("CPU bound 1");
+    t4->Fork((VoidFunctionPtr)CPUbound,(void*)1);
+    Thread *t5 =new Thread("MIX bound 0");
+    t5->Fork((VoidFunctionPtr)MIXbound,(void*)1);
     return;
 }
 
