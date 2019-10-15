@@ -18,6 +18,7 @@ void ioAlarm :: CallBack(){
     printf("try wake up all\n");
     List<ioRequest*> temp;
     while(!kernel->ioEventQueue->IsEmpty()){
+        printf("here111111\n");
         ioRequest *req=kernel->ioEventQueue->RemoveFront();
         if(req->pendingTick<=kernel->stats->totalTicks){
             printf("here\n");
