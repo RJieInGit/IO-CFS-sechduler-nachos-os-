@@ -7,17 +7,17 @@ ioRequest:: ioRequest(requestType t, Thread *parent){
     int random= rand()%10;
     if(type=ioread)
         random=random*100;
-    createStamp= kernel->stat->totalTicks;
+    createStamp= kernel->stats->totalTicks;
 }
 
 
 
  void io:: ioread(int arg){
-    enum requestType read =ioread;
+    enum requestType read =requeatType.ioread;
     ioRequest* req=new ioRequest(read,kernel->currentThread);
     // if there is no current running iorequest then set up the interrupt
     if(kernel->IoAlarm->currentRequest!=NULL){
-         kernel->ioEventQueue->Append(req);
+         kernel->ioEventQueue->Insert(req);
     }
     //if there is an running iorequest then put the request in eventqueue.
     else{
@@ -32,7 +32,7 @@ ioRequest:: ioRequest(requestType t, Thread *parent){
     //just simulate output, input depends on user so that is unable to simulate
 } 
 void io:: iowrite(int arg){
-    enum requestType write =iowrite;
+    enum requestType write =requestType.iowrite;
     ioRequest* req=new ioRequest(write,kernel->currentThread);
     if(kernel->IoAlarm->currentRequest!=NULL){
          kernel->ioEventQueue->Insert(req);
