@@ -26,8 +26,9 @@ ioRequest:: ioRequest(requestType t, Thread *parent){
         kernel->IoAlarm->currentRequest=req;
         kernel->IoAlarm->iotimer->SetInterrupt(req);
     }
-
+    kernel->interrupt->SetLevel(IntOff);
     kernel->currentThread->Sleep(false);
+    kernel->interrupt->SetLevel(IntOn);
     //print after callback from alarmer, which simulate the execution time
     printf("read some content as an iorequest, ioread finished currentTick: %d\n",kernel->stats->totalTicks);
     
