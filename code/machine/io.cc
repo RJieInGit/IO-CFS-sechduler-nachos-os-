@@ -39,7 +39,7 @@ void io:: iowrite(int arg){
     requestType write =requestType:: iowrite;
     ioRequest* req=new ioRequest(write,kernel->currentThread);
 printf("write iorequest created at %d tick, the io thread is %s the exetime is : %d \n",kernel->stats->totalTicks,kernel->currentThread->getName(),req->pending
-)
+);
     if(kernel->IoAlarm->currentRequest!=NULL){
          kernel->ioEventQueue->Insert(req);
     }
