@@ -27,7 +27,7 @@ void ioAlarm :: CallBack(){
         }
     }
     while(!temp.IsEmpty()){
-        kernel->ioEventQueue->insert(temp.RemoveFront());
+        kernel->ioEventQueue->Insert(temp.RemoveFront());
     }
     printf("waken up all \n");
 
