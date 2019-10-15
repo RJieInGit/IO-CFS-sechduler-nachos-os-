@@ -16,6 +16,7 @@ ioRequest:: ioRequest(requestType t, Thread *parent){
     requestType read =requestType:: ioread;
     ioRequest* req=new ioRequest(read,kernel->currentThread);
     // if there is no current running iorequest then set up the interrupt
+    printf("read iorequest created at %d tick, \n",stats->totalTicks);
     if(kernel->IoAlarm->currentRequest!=NULL){
          kernel->ioEventQueue->Insert(req);
     }
@@ -27,7 +28,7 @@ ioRequest:: ioRequest(requestType t, Thread *parent){
 
     kernel->currentThread->Sleep(false);
     //print after callback from alarmer, which simulate the execution time
-    printf("read some content as an iorequest\n");
+    printf("read some content as an iorequest, ioread finished currentTick: %d\n",stats->totalTicks);
     
     //just simulate output, input depends on user so that is unable to simulate
 } 
