@@ -19,8 +19,11 @@ void ioAlarm :: CallBack(){
     List<ioRequest*> temp;
     while(!kernel->ioEventQueue->IsEmpty()){
         ioRequest *req=kernel->ioEventQueue->RemoveFront();
-        if(req->pendingTick<=kernel->stats->totalTicks)
+        if(req->pendingTick<=kernel->stats->totalTicks){
+            printf("here\n");
             ihandler->wakeUp(req);
+            printf("here2\n");
+        }
         else
         {
             temp.Append(req);
