@@ -13,7 +13,7 @@ ioRequest:: ioRequest(requestType t, Thread *parent){
 
 
  void io:: ioread(int arg){
-    requestType read = requetType::ioread;
+    requestType read = ioread;
     ioRequest* req=new ioRequest(read,kernel->currentThread);
     // if there is no current running iorequest then set up the interrupt
     if(kernel->IoAlarm->currentRequest!=NULL){
@@ -32,7 +32,7 @@ ioRequest:: ioRequest(requestType t, Thread *parent){
     //just simulate output, input depends on user so that is unable to simulate
 } 
 void io:: iowrite(int arg){
-    requestType write =requestType::iowrite;
+    requestType write = iowrite;
     ioRequest* req=new ioRequest(write,kernel->currentThread);
     if(kernel->IoAlarm->currentRequest!=NULL){
          kernel->ioEventQueue->Insert(req);

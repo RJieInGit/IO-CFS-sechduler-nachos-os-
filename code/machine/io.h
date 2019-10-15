@@ -1,7 +1,7 @@
 
 #include "../threads/thread.h"
 #pragma once
-enum class requestType { ioread, iowrite};
+enum requestType { ioread, iowrite};
 // each io event is considered as a io request
 
 class ioRequest{
