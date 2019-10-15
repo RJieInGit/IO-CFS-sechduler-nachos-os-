@@ -18,14 +18,10 @@ ioRequest:: ioRequest(requestType t, Thread *parent){
     ioRequest* req=new ioRequest(read,kernel->currentThread);
     // if there is no current running iorequest then set up the interrupt
     printf("read iorequest created at %d tick, \n",kernel->stats->totalTicks);
-    if(kernel->IoAlarm->currentRequest!=NULL){
+    
          kernel->ioEventQueue->Insert(req);
-    }
     //if there is an running iorequest then put the request in eventqueue.
-    else{
-        kernel->IoAlarm->currentRequest=req;
-        kernel->IoAlarm->iotimer->SetInterrupt(req);
-    }
+    
     kernel->interrupt->SetLevel(IntOff);
     kernel->currentThread->Sleep(false);
     kernel->interrupt->SetLevel(IntOn);
@@ -40,13 +36,8 @@ void io:: iowrite(int arg){
     ioRequest* req=new ioRequest(write,kernel->currentThread);
 printf("write iorequest created at %d tick, the io thread is %s the exetime is : %d \n",kernel->stats->totalTicks,kernel->currentThread->getName(),req->pendingTick
 );
-    if(kernel->IoAlarm->currentRequest!=NULL){
          kernel->ioEventQueue->Insert(req);
-    }
-    else{
-        kernel->IoAlarm->currentRequest=req;
-        kernel->IoAlarm->iotimer->SetInterrupt(req);
-    }
+    
     printf("write thread sleep\n");
     kernel->interrupt->SetLevel(IntOff);
     kernel->currentThread->Sleep(false);
