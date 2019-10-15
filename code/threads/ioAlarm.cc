@@ -35,8 +35,5 @@ void ioAlarm :: CallBack(){
     }
 
     printf("waken up all \n");
-    if (status != IdleMode) {
-	interrupt->YieldOnReturn();
-    }
 
 }
