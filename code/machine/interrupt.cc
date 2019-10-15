@@ -147,7 +147,7 @@ Interrupt::SetLevel(IntStatus now)
 void
 Interrupt::OneTick()
 {
-    printf("one tick occur \n");
+    //printf("one tick occur \n");
     MachineStatus oldStatus = status;
     Statistics *stats = kernel->stats;
 
@@ -174,7 +174,7 @@ Interrupt::OneTick()
 	kernel->currentThread->Yield();
 	status = oldStatus;
     }
-    printf("one tick finish\n");
+    //printf("one tick finish\n");
 }
 
 //----------------------------------------------------------------------
