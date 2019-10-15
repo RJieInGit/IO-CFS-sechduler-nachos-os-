@@ -54,7 +54,7 @@ Timer::CallBack()
 {
     // invoke the Nachos interrupt handler for this device
     callPeriodically->CallBack();
-    printf("one timeint occur \n");
+    //printf("one timeint occur \n");
     SetInterrupt();	// do last, to let software interrupt handler
     			// decide if it wants to disable future interrupts
 }
@@ -69,7 +69,7 @@ Timer::CallBack()
 void
 Timer::SetInterrupt() 
 {
-    printf("set timeint \n");
+    //printf("set timeint \n");
     if (!disable) {
        int delay = TimerTicks;
     
