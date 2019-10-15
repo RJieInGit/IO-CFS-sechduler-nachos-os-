@@ -24,8 +24,4 @@ void ioAlarm :: CallBack(){
     else{
         currentRequest=NULL;
     }
-
-    if (status != IdleMode) {
-	interrupt->YieldOnReturn();
-    }
 }
