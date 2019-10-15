@@ -16,7 +16,7 @@
 }
 
 void ioTimer :: CallBack(){
-    
+
     ioCallBack->CallBack();
    
 }
@@ -24,5 +24,6 @@ void ioTimer :: CallBack(){
 void ioTimer::SetInterrupt(ioRequest* req){
   
         int delay =req->pendingTick;
-        kernel->interrupt->Schedule(this,delay,IoInt);
+        IntType t= IoInt;
+        kernel->interrupt->Schedule(this,delay,t);
 }
