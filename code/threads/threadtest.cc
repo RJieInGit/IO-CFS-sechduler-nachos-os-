@@ -31,6 +31,7 @@ ThreadTest()
     Thread *IO =new Thread("IObound");
     IO->Fork((VoidFunctionPtr)IObound,(void*)1);
     while(1){
+        kernel->Yield();
         kernel->interrupt->OneTick();
     }
 }

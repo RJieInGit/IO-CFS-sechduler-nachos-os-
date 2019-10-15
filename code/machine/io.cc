@@ -61,7 +61,7 @@ printf("write iorequest created at %d tick, the io thread is %s the exetime is :
 void ioHandler::wakeUp(ioRequest *req){
     //simply wake up the parent thread
     kernel->scheduler->ReadyToRun(req->parentThread);
-    printf("wake up parent %s",req->parentThread->getName());
+    printf("wake up parent %s \n ",req->parentThread->getName());
 }
 
 ioRequest* ioHandler:: getNextInterrupt(){
