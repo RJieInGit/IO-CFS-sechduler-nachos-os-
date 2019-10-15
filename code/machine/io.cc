@@ -42,6 +42,7 @@ void io:: iowrite(int arg){
     }
     else{
         kernel->IoAlarm->currentRequest=req;
+        printf("here4\n");
         kernel->IoAlarm->iotimer->SetInterrupt(req);
     }
     kernel->currentThread->Sleep(false);
