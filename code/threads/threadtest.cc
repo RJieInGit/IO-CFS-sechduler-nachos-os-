@@ -23,6 +23,7 @@ void IObound(int arg){
 }
 void CPUbound(int arg){
     for(int i=0;i<1000;i++){
+    printf("cpu bound tick at : %d\n",kernel->stats->totalTicks);
     kernel->interrupt->OneTick();
     }
 }
