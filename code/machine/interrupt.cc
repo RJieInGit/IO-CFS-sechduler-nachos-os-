@@ -174,7 +174,7 @@ Interrupt::OneTick()
 	kernel->currentThread->Yield();
 	status = oldStatus;
     }
-    //printf("one tick finish\n");
+    printf("one tick finish\n");
 }
 
 //----------------------------------------------------------------------
