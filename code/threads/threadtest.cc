@@ -33,7 +33,7 @@ Thread *t = new Thread("thread0");
     t5->Fork((VoidFunctionPtr) io::iowrite, (void *) 0);
     Thread *t6 = new Thread("thread6");
     t6->Fork((VoidFunctionPtr) io::ioread, (void *) 0);
-    printf("here4\n");
+    
 }
 void
 ThreadTest()

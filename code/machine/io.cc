@@ -33,9 +33,10 @@ ioRequest:: ioRequest(requestType t, Thread *parent){
     //just simulate output, input depends on user so that is unable to simulate
 } 
 void io:: iowrite(int arg){
-    printf("write iorequest created at %d tick, \n",kernel->stats->totalTicks);
+    printf("write iorequest created at %d tick, the io thread is %s \n",kernel->stats->totalTicks,kernel->currentThread->getName);
     requestType write =requestType:: iowrite;
     ioRequest* req=new ioRequest(write,kernel->currentThread);
+    printf("here4\n");
     if(kernel->IoAlarm->currentRequest!=NULL){
          kernel->ioEventQueue->Insert(req);
     }
