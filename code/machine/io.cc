@@ -34,7 +34,7 @@ ioRequest:: ioRequest(requestType t, Thread *parent){
 void io:: iowrite(int arg){
     ioRequest* req=new ioRequest(iowrite,kernel->currentThread);
     if(kernel->IoAlarm->currentRequest!=NULL){
-         kernel->ioEventQueue->Insery(req);
+         kernel->ioEventQueue->Insert(req);
     }
     else{
         kernel->IoAlarm->currentRequest=req;
