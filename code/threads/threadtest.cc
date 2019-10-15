@@ -14,6 +14,23 @@ SimpleThread(int which)
     }
 }
 
+
+void TestIO(){
+Thread *t = new Thread("thread0");
+    t->Fork((VoidFunctionPtr) io::iowrite, (void *)0);
+    Thread *t1 = new Thread("thread1");
+    t1->Fork((VoidFunctionPtr) io::iowrite, (void *)0);
+    Thread *t2 = new Thread("thread2");
+    t2->Fork((VoidFunctionPtr) io::iowrite, (void *)0);
+    Thread *t3 = new Thread("thread3");
+    t3->Fork((VoidFunctionPtr) io::ioread, (void *) 0);
+    Thread *t4 = new Thread("thread4");
+    t4->Fork((VoidFunctionPtr) io::ioread, (void *) 0);
+    Thread *t5 = new Thread("thread5");
+    t5->Fork((VoidFunctionPtr) io::iowrite, (void *) 0);
+    Thread *t6 = new Thread("thread6");
+    t6->Fork((VoidFunctionPtr) io::ioread, (void *) 0);
+}
 void
 ThreadTest()
 {
@@ -22,19 +39,3 @@ ThreadTest()
 }
 
 
-void TestIO(){
-Thread *t = new Thread("thread0");
-    t->Fork((VoidFunctionPtr) io::iowrite, (void *)0);
-    Thread *t1 = new Thread("thread1");
-    t->Fork((VoidFunctionPtr) io::iowrite, (void *)0);
-    Thread *t2 = new Thread("thread2");
-    t->Fork((VoidFunctionPtr) io::iowrite, (void *)0);
-    Thread *t = new Thread("thread3");
-    t->Fork((VoidFunctionPtr) io::ioread, (void *) 0);
-    Thread *t = new Thread("thread4");
-    t->Fork((VoidFunctionPtr) io::ioread, (void *) 0);
-    Thread *t = new Thread("thread5");
-    t->Fork((VoidFunctionPtr) io::iowrite, (void *) 0);
-    Thread *t = new Thread("thread1");
-    t->Fork((VoidFunctionPtr) io::ioread, (void *) 0);
-}
