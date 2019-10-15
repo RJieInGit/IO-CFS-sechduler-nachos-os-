@@ -318,10 +318,11 @@ Interrupt::CheckIfDue(bool advanceClock)
         next->callOnInterrupt->CallBack();// call the interrupt handler
         printf("int type :%s , when : %d \n ",next->type,next->when);
 	delete next;
+    printf("here4\n");
     
     } while (!pending->IsEmpty() 
     		&& (pending->Front()->when <= stats->totalTicks));
-            printf("here4\n");
+            
     inHandler = FALSE;
     return TRUE;
 }
