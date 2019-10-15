@@ -14,6 +14,7 @@
 void ioTimer :: CallBack(){
     printf("IOTIMER callback! \n");
     ioCallBack->CallBack();
+    SetInterrupt();
 }
 
 void ioTimer::SetInterrupt(){
