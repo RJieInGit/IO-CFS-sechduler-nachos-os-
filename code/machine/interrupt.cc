@@ -314,7 +314,7 @@ Interrupt::CheckIfDue(bool advanceClock)
     inHandler = TRUE;
     do {
         next = pending->RemoveFront();    // pull interrupt off list
-        printf("here4\n");
+        printf("%s \n",next->IntType);
         next->callOnInterrupt->CallBack();// call the interrupt handler
 	delete next;
     } while (!pending->IsEmpty() 
