@@ -22,7 +22,9 @@ void IObound(int arg){
     return;
 }
 void CPUbound(int arg){
+    for(int i=0;i<1000;i++){
     kernel->interrupt->OneTick();
+    }
 }
 
 void
