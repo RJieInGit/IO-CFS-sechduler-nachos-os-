@@ -15,7 +15,9 @@ void ioAlarm :: CallBack(){
     MachineStatus status = interrupt->getStatus();
 
     //wake up the blocked parent thread
+    printf("try wake up \n");
     ihandler->wakeUp(currentRequest);
+    printf("waken up \n");
       ioRequest *req = ihandler->getNextInterrupt();
     if(req !=NULL){
         iotimer->SetInterrupt(req);
