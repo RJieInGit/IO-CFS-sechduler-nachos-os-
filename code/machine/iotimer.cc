@@ -16,7 +16,7 @@ void ioTimer :: CallBack(){
     ioCallBack->CallBack();
 }
 
-void ioTimer::SetInterrupt(ioRequest* req){
+void ioTimer::SetInterrupt(){
        // printf("set ioint now \n");
         //ASSERT(req!=NULL);
         int delay =TimerTicks;
