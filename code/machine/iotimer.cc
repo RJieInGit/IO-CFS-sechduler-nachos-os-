@@ -16,6 +16,7 @@
 }
 
 void ioTimer :: CallBack(){
+      printf("here4\n");
     ioCallBack->CallBack();
    
 }
@@ -24,5 +25,4 @@ void ioTimer::SetInterrupt(ioRequest* req){
   
         int delay =req->pendingTick;
         kernel->interrupt->Schedule(this,delay,IoInt);
-          printf("here4\n");
 }
