@@ -6,7 +6,7 @@
 //to set the schedule of next Iointerrupt
 
 //initialize a ioTimer and set the interrupt if the eventQueue is not empty
-void ioTimer:: ioTimer(CallBackObj *toCall){
+ ioTimer:: ioTimer(CallBackObj *toCall){
     ioCallBack =toCall;
     ihandler =new tocall->ihandler;
     ioRequest *req = ihandler->getNextInterrupt();
