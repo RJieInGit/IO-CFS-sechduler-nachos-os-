@@ -15,15 +15,20 @@ void ioAlarm :: CallBack(){
     MachineStatus status = interrupt->getStatus();
 
     //wake up the blocked parent thread
-    printf("try wake up \n");
-    ihandler->wakeUp(currentRequest);
-    printf("waken up \n");
-      ioRequest *req = ihandler->getNextInterrupt();
-    if(req !=NULL){
-        iotimer->SetInterrupt(req);
-        currentRequest = req;
+    printf("try wake up all\n");
+    List<ioRequest*> temp;
+    while(!kernel->ioEventQueue->IsEmpty()){
+        ioRequest *req=kernel->ioEventQueue->RemoveFront();
+        if(req->pendingTick<=kernel->stats->totalTicks)
+            ihandler->wakeUp(currentRequest);
+        else
+        {
+            temp.Append(req);
+        }
     }
-    else{
-        currentRequest=NULL;
+    while(!temp.IsEmpty()){
+        kernel->ioEventQueue->insert(temp.RemoveFront());
     }
+    printf("waken up all \n");
+
 }

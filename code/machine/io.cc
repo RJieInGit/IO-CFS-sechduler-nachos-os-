@@ -7,7 +7,7 @@ ioRequest:: ioRequest(requestType t, Thread *parent){
     int random= (rand()%10)*100;
     if(type==requestType::ioread)
         random=random*100;
-    pendingTick=random;
+    pendingTick=random+kernel->stats->totalTicks;
     createStamp= kernel->stats->totalTicks;
 }
 
