@@ -34,7 +34,7 @@ ioRequest:: ioRequest(requestType t, Thread *parent){
 void io:: iowrite(int arg){
     ioRequest* req=new ioRequest(iowrite,kernel->currentThread);
     if(kernel->IoAlarm->currentRequest!=NULL){
-         kernel->ioEventQueue->Append(req);
+         kernel->ioEventQueue->Insery(req);
     }
     else{
         kernel->IoAlarm->currentRequest=req;
@@ -42,21 +42,21 @@ void io:: iowrite(int arg){
     }
     kernel->currentThread->Sleep(false);
     //print after callback from alarmer, which simulate the execution time
-    printf("%s :write some content as an iorequest at :%d ticks \n",kernel->currentThread->getName()),;
+    printf("%s :write some content as an iorequest at :%d ticks \n",kernel->currentThread->getName());
     
     //just simulate output, input depends on user so that is unable to simulate
 }
 
 void ioHandler::wakeUp(ioRequest *req){
     //simply wake up the parent thread
-    kernel->scheduler->ReadyToRun(req->parent);
+    kernel->scheduler->ReadyToRun(req->parentThread);
 }
 
 ioRequest* ioHandler:: getNextInterrupt(){
     if(kernel->ioEventQueue->IsEmpty())
         return NULL;
     else{
-        return kernel->ioEventQueue.RemoveFront();
+        return kernel->ioEventQueue->RemoveFront();
     }
 }
 
