@@ -45,6 +45,8 @@ Thread::Thread(char* threadName)
 					// of machine registers
     }
     space = NULL;
+    vruntime=0;
+    decay=rand()%3+1;
 }
 
 //----------------------------------------------------------------------

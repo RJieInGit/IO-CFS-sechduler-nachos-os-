@@ -88,15 +88,12 @@ ThreadTest()
  
      }
  
-     cout << "== 前序遍历: ";
-     tree->preOrder();
+     
  
      cout << "\n== 中序遍历: ";
      tree->inOrder();
  
-     cout << "\n== 后序遍历: ";
-     tree->postOrder();
-     cout << endl;
+     
  
      cout << "== 最小值: " << tree->minimum() << endl;
      cout << "== 最大值: " << tree->maximum() << endl;

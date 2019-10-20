@@ -33,7 +33,7 @@ class RBTree {
         RBTNode<T> *mRoot;    // 根结点
 
     public:
-        RBTree();
+        RBTree(int (*comp)(T x, T y));
         ~RBTree();
 
         void preOrder();
@@ -69,6 +69,7 @@ class RBTree {
         // 打印红黑树
         void print();
     private:
+        int (*compare)(T x, T y);
         // 前序遍历"红黑树"
         void preOrder(RBTNode<T>* tree) const;
         // 中序遍历"红黑树"

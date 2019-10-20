@@ -103,6 +103,7 @@ Scheduler::FindNextToRun ()
 void
 Scheduler::Run (Thread *nextThread, bool finishing)
 {
+    
     Thread *oldThread = kernel->currentThread;
     
     ASSERT(kernel->interrupt->getLevel() == IntOff);

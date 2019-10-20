@@ -1,8 +1,9 @@
 
 
 template <class T>
-RBTree<T>::RBTree():mRoot(NULL)
+RBTree<T>::RBTree(int (*comp)(T x, T y)):mRoot(NULL)
 {
+    compare= comp;
     mRoot = NULL;
 }
 

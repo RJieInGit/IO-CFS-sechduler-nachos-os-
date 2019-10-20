@@ -105,6 +105,9 @@ class Thread {
     void Print() { cout << name; }
     void SelfTest();		// test whether thread impl is working
 
+    int vruntime;  //for CFS scheduer
+    int decay; 
+
   private:
     // some of the private data for this class is listed above
     
