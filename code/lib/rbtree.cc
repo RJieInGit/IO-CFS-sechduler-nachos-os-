@@ -706,9 +706,9 @@ void RBTree<T>::print(RBTNode<T>* tree, T key, int direction)
     if(tree != NULL)
     {
         if(direction==0)    // tree是根节点
-            cout << setw(2) << tree->key << "(B) is root" << endl;
+            cout  << tree->key << "(B) is root" << endl;
         else                // tree是分支节点
-            cout << setw(2) << tree->key <<  (rb_is_red(tree)?"(R)":"(B)") << " is " << setw(2) << key << "'s "  << setw(12) << (direction==1?"right child" : "left child") << endl;
+            cout  << tree->key <<  (rb_is_red(tree)?"(R)":"(B)") << " is "  << key << "'s "   << (direction==1?"right child" : "left child") << endl;
 
         print(tree->left, tree->key, -1);
         print(tree->right,tree->key,  1);
