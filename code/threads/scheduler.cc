@@ -81,12 +81,12 @@ Scheduler::FindNextToRun ()
 {
     ASSERT(kernel->interrupt->getLevel() == IntOff);
 
-    if (readyList->IsEmpty()) {
+    if (readyList->getNum()<=0) {
 	return NULL;
     } else {
         //remove the thread with the smallest vruntime from rbtree
-        Thread* t = kernel->readyList->minimum();
-    	kernel->readyList->remove(t);
+        Thread* t = readyList->minimum();
+    	readyList->remove(t);
         return t;
     }
 }
@@ -112,7 +112,7 @@ void
 Scheduler::Run (Thread *nextThread, bool finishing)
 {
     // vrt= vrt + runtime*decay
-    nextThread->vruntime+= 1000*nextThread->decay/kernel->readyList->getNum();
+    nextThread->vruntime+= 1000*nextThread->decay/readyList->getNum();
     Thread *oldThread = kernel->currentThread;
     
     ASSERT(kernel->interrupt->getLevel() == IntOff);
@@ -185,5 +185,5 @@ void
 Scheduler::Print()
 {
     cout << "Ready list contents:\n";
-    readyList->Apply(ThreadPrint);
+    readyList->print();
 }
