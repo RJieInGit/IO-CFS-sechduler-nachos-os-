@@ -114,6 +114,7 @@ class RBTree {
 #define rb_set_parent(r,p)  do { (r)->parent = (p); } while (0)
 #define rb_set_color(r,c)  do { (r)->color = (c); } while (0)
 };
+#include "rbtree.cc"
 
 
 #endif
