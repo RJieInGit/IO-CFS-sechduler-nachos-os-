@@ -89,8 +89,11 @@ printf("%d , %d \n",(Thread*)(x->key)->vruntime,(Thread*)key->vruntime);
         return x;
     if (compare(key, x->key)<0)
         return search(x->left, key);
-    else if(compare(key,x->right->key)>0)
+    else if(compare(key,x->right->key)>0){
+        printf("good here 3\n");
         return search(x->right, key);
+        printf("good here 4\n");
+    }
     else{
         RBTNode<T>* l =search(x->left,key);
         if(l!=NULL)
@@ -106,9 +109,7 @@ printf("%d , %d \n",(Thread*)(x->key)->vruntime,(Thread*)key->vruntime);
 template <class T>
 RBTNode<T>* RBTree<T>::search(T key) 
 {
-    printf("good here 3\n");
     search(mRoot, key);
-    printf("good here 4\n");
 }
 
 /*
@@ -680,9 +681,10 @@ void RBTree<T>::remove(T key)
     RBTNode<T> *node; 
 
     // 查找key对应的节点(node)，找到的话就删除该节点
-    if ((node = search(mRoot, key)) != NULL)
+    if ((node = search(mRoot, key)) != NULL){
         remove(mRoot, node);
         num--;
+    }
 }
 
 /*
