@@ -2,7 +2,6 @@
 #include "main.h"
 #include "thread.h"
 #include "../lib/rbtree.h"
-#include <string.h>
 
 void
 SimpleThread(int which)
@@ -51,27 +50,56 @@ void MIXbound(int arg){
 void
 ThreadTest()
 {
-    int numCPU =7;
-    int numIO =7;
-    int numMix =7;
-    Thread *t;
+    Thread *t = new Thread("IObound thread0");
+    t->Fork((VoidFunctionPtr) IObound, (void *) 1);
+    Thread *t1 =new Thread("CPU bound 0");
+    t1->Fork((VoidFunctionPtr)CPUbound,(void*)1);
+    Thread *t2 =new Thread("MIX bound 0");
+    t2->Fork((VoidFunctionPtr)MIXbound,(void*)1);
+    Thread *t3 =new Thread("IO bound 1");
+    t3->Fork((VoidFunctionPtr)IObound,(void*)1);
+    Thread *t4 =new Thread("CPU bound 1");
+    t4->Fork((VoidFunctionPtr)CPUbound,(void*)1);
+    Thread *t5 =new Thread("MIX bound 0");
+    t5->Fork((VoidFunctionPtr)MIXbound,(void*)1);
     
-    for (int i=0;i<numCPU;i++){
-        char s[50];
-         sprintf(s,"CPUbound");
-        t= new Thread(s);
-        t->Fork((VoidFunctionPtr) CPUbound, (void *) 1);
-    }
-     for (int i=0;i<numIO;i++){
-         char s [50];
-        sprintf(s,"IObound");
-        t= new Thread(s);
-        t->Fork((VoidFunctionPtr) IObound, (void *) 1);
-    } for (int i=0;i<numMix;i++){
-        char s [50];
-        sprintf(s,"MIXbound");
-        t= new Thread(s);
-        t->Fork((VoidFunctionPtr) MIXbound, (void *) 1);
-    }
+    t= new Thread("IObound thread 2");
+    t->Fork((VoidFunctionPtr) IObound, (void *) 1);
+     
+    t= new Thread("IObound thread 3");
+    t->Fork((VoidFunctionPtr) IObound, (void *) 1);
+     
+    t= new Thread("IObound thread 4");
+    t->Fork((VoidFunctionPtr) IObound, (void *) 1);
+     
+    t= new Thread("IObound thread 5");
+    t->Fork((VoidFunctionPtr) IObound, (void *) 1);
+     
+    t= new Thread("IObound thread 6");
+    t->Fork((VoidFunctionPtr) IObound, (void *) 1);
+
+    t= new Thread("CPUbound thread 2");
+    t->Fork((VoidFunctionPtr) CPUbound, (void *) 1);
+     t= new Thread("CPUbound thread 3");
+    t->Fork((VoidFunctionPtr) CPUbound, (void *) 1);
+    t= new Thread("CPUbound thread 4");
+    t->Fork((VoidFunctionPtr) CPUbound, (void *) 1);
+    t= new Thread("CPUbound thread 5");
+    t->Fork((VoidFunctionPtr) CPUbound, (void *) 1);
+    t= new Thread("CPUbound thread 6");
+    t->Fork((VoidFunctionPtr) CPUbound, (void *) 1);
+    t= new Thread("MIXbound thread 2");
+    t->Fork((VoidFunctionPtr) MIXbound, (void *) 1);
+    t= new Thread("MIXbound thread 3");
+    t->Fork((VoidFunctionPtr) MIXbound, (void *) 1);
+    t= new Thread("MIXbound thread 4");
+    t->Fork((VoidFunctionPtr) MIXbound, (void *) 1);
+    t= new Thread("MIXbound thread 5");
+    t->Fork((VoidFunctionPtr) MIXbound, (void *) 1);
+    t= new Thread("MIXbound thread 6");
+    t->Fork((VoidFunctionPtr) MIXbound, (void *) 1);
+     // 7 cpubound , 7iobound 7 mixbound total 21 threads
+   
+    
 }
 
