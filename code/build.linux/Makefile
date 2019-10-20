@@ -238,7 +238,7 @@ LIB_C = ../lib/bitmap.cc\
 	../lib/sysdep.cc\
 	../lib/rbtree.cc
 
-LIB_O = bitmap.o debug.o libtest.o sysdep.o rbtree.o
+LIB_O = bitmap.o debug.o libtest.o sysdep.o 
 
 
 MACHINE_H = ../machine/callback.h\
