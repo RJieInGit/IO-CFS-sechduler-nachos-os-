@@ -113,9 +113,10 @@ Scheduler::Run (Thread *nextThread, bool finishing)
 {
     
   readyList->inOrder();
+  printf("good here \n");
     readyList->remove(nextThread);
     // vrt= vrt + runtime*decay
-    printf("good here \n");
+    printf("good here1 \n");
     printf("%d \n",nextThread->vruntime);
     nextThread->vruntime+= 1000*nextThread->decay/(readyList->getNum()+1);
     //set the time slice for this thread according to its decay.
