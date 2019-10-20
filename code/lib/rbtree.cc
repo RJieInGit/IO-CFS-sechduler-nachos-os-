@@ -744,6 +744,7 @@ void RBTree<T>::print()
 
 template <class T>
 T RBTree<T>::removeMin(){
+    printf("num: %d\n",num);
      RBTNode<T> *p = minimum(mRoot);
     if (p != NULL){
         remove(mRoot,p);
