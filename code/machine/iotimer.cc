@@ -17,7 +17,7 @@ void ioTimer :: CallBack(){
     SetInterrupt();
    // printf("IOTIMER callback finished! \n");
    if(!kernel->ioEventQueue->IsEmpty())
-   printf("----------------------------tick: %d  events: %d--------------------------\n",kernel->stats->totalTicks,kernel->ioEventQueue->NumInList);
+   printf("----------------------------tick: %d  events: %d--------------------------\n",kernel->stats->totalTicks,kernel->ioEventQueue->NumInList());
 }
 
 void ioTimer::SetInterrupt(){
