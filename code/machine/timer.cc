@@ -40,7 +40,7 @@ Timer::Timer(bool doRandom, CallBackObj *toCall)
     randomize = doRandom;
     callPeriodically = toCall;
     disable = FALSE;
-    SetInterrupt();
+    //SetInterrupt();
 }
 
 //----------------------------------------------------------------------
@@ -55,7 +55,7 @@ Timer::CallBack()
     // invoke the Nachos interrupt handler for this device
     callPeriodically->CallBack();
     //printf("one timeint occur \n");
-    SetInterrupt();	// do last, to let software interrupt handler
+   // SetInterrupt();	// do last, to let software interrupt handler
     			// decide if it wants to disable future interrupts
 }
 
@@ -67,7 +67,7 @@ Timer::CallBack()
 //----------------------------------------------------------------------
 
 void
-Timer::SetInterrupt() 
+Timer::SetInterrupt(int delay) 
 {
     //printf("set timeint \n");
     if (!disable) {

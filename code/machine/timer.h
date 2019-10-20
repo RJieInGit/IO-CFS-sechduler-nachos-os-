@@ -35,6 +35,9 @@ class Timer : public CallBackObj {
     void Disable() { disable = TRUE; }
     				// Turn timer device off, so it doesn't
 				// generate any more interrupts.
+    void SetInterrupt(int delay);  	// cause an interrupt to occur in the
+    				// the future after a fixed or random
+				// make it public for sechduler to call
 
   private:
     bool randomize;		// set if we need to use a random timeout delay
@@ -45,9 +48,7 @@ class Timer : public CallBackObj {
     void CallBack();		// called internally when the hardware
 				// timer generates an interrupt
 
-    void SetInterrupt();  	// cause an interrupt to occur in the
-    				// the future after a fixed or random
-				// delay
+   
 };
 
 #endif // TIMER_H
