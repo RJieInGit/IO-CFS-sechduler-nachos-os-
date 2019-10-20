@@ -1,7 +1,7 @@
 #include "kernel.h"
 #include "main.h"
 #include "thread.h"
-#include "../lib/rbtree.h"
+//#include "../lib/rbtree.h"
 
 void
 SimpleThread(int which)
