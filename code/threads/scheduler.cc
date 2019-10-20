@@ -111,7 +111,7 @@ Scheduler::FindNextToRun ()
 void
 Scheduler::Run (Thread *nextThread, bool finishing)
 {
-    printf("the num of thread in readyqueu is %d \n",readyList->getNum());
+    readyList->inOrder();
     // vrt= vrt + runtime*decay
     nextThread->vruntime+= 1000*nextThread->decay/(readyList->getNum()+1);
     //set the time slice for this thread according to its decay.
