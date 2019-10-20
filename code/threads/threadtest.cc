@@ -2,6 +2,7 @@
 #include "main.h"
 #include "thread.h"
 #include "../lib/rbtree.h"
+#include <string.h>
 
 void
 SimpleThread(int which)
