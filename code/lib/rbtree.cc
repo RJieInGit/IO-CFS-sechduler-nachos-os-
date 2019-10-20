@@ -84,6 +84,7 @@ void RBTree<T>::postOrder()
 template <class T>
 RBTNode<T>* RBTree<T>::search(RBTNode<T>* x, T key) const
 {
+    printf("good here 1\n");
     if (x==NULL || x->key==key)
         return x;
 
@@ -679,7 +680,6 @@ void RBTree<T>::remove(T key)
 
     // 查找key对应的节点(node)，找到的话就删除该节点
     if ((node = search(mRoot, key)) != NULL)
-        printf("good here 1\n");
         remove(mRoot, node);
         num--;
 }

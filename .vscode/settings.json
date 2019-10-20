@@ -14,6 +14,7 @@
         "__hash_table": "cpp",
         "algorithm": "cpp",
         "__locale": "cpp",
-        "string_view": "cpp"
+        "string_view": "cpp",
+        "__node_handle": "cpp"
     }
 }
