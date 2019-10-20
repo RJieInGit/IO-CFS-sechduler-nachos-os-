@@ -50,19 +50,23 @@ void MIXbound(int arg){
 void
 ThreadTest()
 {
-    Thread *t = new Thread("IObound thread0");
-    t->Fork((VoidFunctionPtr) IObound, (void *) 1);
-    Thread *t1 =new Thread("CPU bound 0");
-    t1->Fork((VoidFunctionPtr)CPUbound,(void*)1);
-    Thread *t2 =new Thread("MIX bound 0");
-    t2->Fork((VoidFunctionPtr)MIXbound,(void*)1);
-    Thread *t3 =new Thread("IO bound 1");
-    t3->Fork((VoidFunctionPtr)IObound,(void*)1);
-    Thread *t4 =new Thread("CPU bound 1");
-    t4->Fork((VoidFunctionPtr)CPUbound,(void*)1);
-    Thread *t5 =new Thread("MIX bound 0");
-    t5->Fork((VoidFunctionPtr)MIXbound,(void*)1);
-     
-    return;
+    int numCPU =7;
+    int numIO =7;
+    int numMix =7;
+    Thread *t;
+    for (int i=0;i<numCPU;i++){
+        String s= sprintf("CPU bound %d",i);
+        t= new Thread(s);
+        t->->Fork((VoidFunctionPtr) CPUbound, (void *) 1);
+    }
+     for (int i=0;i<numIO;i++){
+        String s= sprintf("IO bound %d",i);
+        t= new Thread(s);
+        t->->Fork((VoidFunctionPtr) IObound, (void *) 1);
+    } for (int i=0;i<numMix;i++){
+        String s= sprintf("MIX bound %d",i);
+        t= new Thread(s);
+        t->->Fork((VoidFunctionPtr) MIXbound, (void *) 1);
+    }
 }
 
