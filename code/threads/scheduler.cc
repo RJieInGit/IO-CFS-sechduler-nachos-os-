@@ -119,9 +119,9 @@ Scheduler::FindNextToRun ()
 void
 Scheduler::Run (Thread *nextThread, bool finishing)
 {
-  printf("\n================ ready queue content============\n");
+  printf("\n\n================ ready queue content============\n\n");
   readyList->inOrder();
-  printf("\n================================================\n");
+  printf("\n\n================================================\n\n");
    
    
     kernel->alarm->timer->SetInterrupt(1000*nextThread->decay/(readyList->getNum()+1));
