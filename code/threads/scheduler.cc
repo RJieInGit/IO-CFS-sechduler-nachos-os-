@@ -67,6 +67,7 @@ Scheduler::ReadyToRun (Thread *thread)
     // insert it seld into the rbtree readly list
     printf("num before insert %d \n",readyList->getNum());
     readyList->insert(thread);
+    readyList->inOrder();
     printf("num after insert %d \n",readyList->getNum());
 }
 
