@@ -55,7 +55,7 @@ template <class T>
 void RBTree<T>::inOrder() 
 {
     inOrder(mRoot);
-    printf("\n\n\n+++++++++++++++++++++\n\n\n");
+   // printf("\n\n\n+++++++++++++++++++++\n\n\n");
 }
 
 /*
@@ -752,6 +752,6 @@ T RBTree<T>::removeMin(){
         num--;
         return p->key;
     }
-         printf("remove Min encounter NUll\n");
+       //  printf("remove Min encounter NUll\n");
     return (T)NULL;
 }
