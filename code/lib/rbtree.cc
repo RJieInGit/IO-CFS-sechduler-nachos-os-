@@ -748,9 +748,9 @@ T RBTree<T>::removeMin(){
     if (p != NULL){
         remove(mRoot,p);
         return p->key;
-        printf("num before remove %d \n",readyList->getNum());
+        printf("num before remove %d \n",num);
         num--;
-        printf("num after remove %d \n",readyList->getNum());
+        printf("num after remove %d \n",num);
     }
 
     return (T)NULL;
