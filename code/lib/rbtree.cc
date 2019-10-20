@@ -55,7 +55,7 @@ template <class T>
 void RBTree<T>::inOrder() 
 {
     inOrder(mRoot);
-    cout<<" \n\n";
+    cout<<" -----------------------------\n\n";
 }
 
 /*
