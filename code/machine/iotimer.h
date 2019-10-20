@@ -19,7 +19,7 @@ class ioTimer : public CallBackObj {
 				// timer generates an interrupt
 
     void SetInterrupt();  	// cause an interrupt to occur in the
-    				// the future after a fixed or random
+    		// the future after a fixed or random
 				// delay
 
   private:
