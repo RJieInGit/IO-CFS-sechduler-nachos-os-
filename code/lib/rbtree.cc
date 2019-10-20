@@ -46,7 +46,7 @@ void RBTree<T>::inOrder(RBTNode<T>* tree) const
     if(tree != NULL)
     {
         inOrder(tree->left);
-        cout<< ((Thread*)tree->key)->vruntime << "("<<((Thread*)tree->key->getName()<<")";
+        cout<< ((Thread*)tree->key)->vruntime << "("<<((Thread*)tree->key)->getName()<<")";
         inOrder(tree->right);
     }
 }
