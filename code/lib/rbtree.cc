@@ -84,7 +84,7 @@ void RBTree<T>::postOrder()
 template <class T>
 RBTNode<T>* RBTree<T>::search(RBTNode<T>* x, T key) const
 {
-
+printf("%d , %d \n",x,key);
     if (x==NULL || x->key==key)
         return x;
     if (compare(key, x->key)<0)
@@ -92,7 +92,6 @@ RBTNode<T>* RBTree<T>::search(RBTNode<T>* x, T key) const
     else if(compare(key,x->right->key)>0)
         return search(x->right, key);
     else{
-        printf("good here 3\n");
         RBTNode<T>* l =search(x->left,key);
         if(l!=NULL)
             return l;
