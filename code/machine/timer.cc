@@ -71,7 +71,6 @@ Timer::SetInterrupt(int delay)
 {
     //printf("set timeint \n");
     if (!disable) {
-       int delay = TimerTicks;
     
        if (randomize) {
 	     delay = 1 + (RandomNumber() % (TimerTicks * 2));
