@@ -663,7 +663,7 @@ void RBTree<T>::remove(RBTNode<T>* &root, RBTNode<T> *node)
 
     if (color == BLACK)
         removeFixUp(root, child, parent);
-    delete node;
+    //delete node;
 }
 
 /* 
