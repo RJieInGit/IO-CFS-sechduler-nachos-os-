@@ -24,7 +24,7 @@
 #include "main.h"
 
 
- static int rbthreadComp(Tread* t1,Thread* t2){
+ static int rbthreadComp(Thread* t1,Thread* t2){
     return t1->vruntime-t2->vruntime;
 }
 //----------------------------------------------------------------------
@@ -65,7 +65,7 @@ Scheduler::ReadyToRun (Thread *thread)
 
     thread->setStatus(READY);
     // insert it seld into the rbtree readly list
-    readyList->insert(this);
+    readyList->insert(thread);
 }
 
 //----------------------------------------------------------------------
