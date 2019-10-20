@@ -65,10 +65,11 @@ Scheduler::ReadyToRun (Thread *thread)
 
     thread->setStatus(READY);
     // insert it seld into the rbtree readly list
-    printf("num before insert %d \n",readyList->getNum());
+   //printf("num before insert %d \n",readyList->getNum());
     readyList->insert(thread);
+    printf("current readyList looks like\n");
     readyList->inOrder();
-    printf("num after insert %d \n",readyList->getNum());
+   // printf("num after insert %d \n",readyList->getNum());
 }
 
 //----------------------------------------------------------------------
