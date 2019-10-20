@@ -747,8 +747,8 @@ T RBTree<T>::removeMin(){
      RBTNode<T> *p = minimum(mRoot);
     if (p != NULL){
         remove(mRoot,p);
-        return p->key;
         num--;
+        return p->key;
     }
          printf("remove Min encounter NUll\n");
     return (T)NULL;
