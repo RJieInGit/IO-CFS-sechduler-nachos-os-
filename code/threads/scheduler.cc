@@ -112,9 +112,9 @@ void
 Scheduler::Run (Thread *nextThread, bool finishing)
 {
     // vrt= vrt + runtime*decay
-    nextThread->vruntime+= 1000*nextThread->decay/readyList->getNum();
+    nextThread->vruntime+= 1000*nextThread->decay/(readyList->getNum()+1);
     //set the time slice for this thread according to its decay.
-    kernel->alarm->timer->SetInterrupt(1000*nextThread->decay/readyList->getNum());
+    kernel->alarm->timer->SetInterrupt(1000*nextThread->decay/(readyList->getNum()+1));
     Thread *oldThread = kernel->currentThread;
     
     ASSERT(kernel->interrupt->getLevel() == IntOff);
