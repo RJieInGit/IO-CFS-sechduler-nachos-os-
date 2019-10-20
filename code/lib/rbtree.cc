@@ -87,7 +87,7 @@ RBTNode<T>* RBTree<T>::search(RBTNode<T>* x, T key) const
     printf("good here 1\n");
     if (x==NULL || x->key==key)
         return x;
-
+printf("good here 1\n");
     if (compare(key, x->key)<0)
         return search(x->left, key);
     else if(compare(key,x->right->key)>0)
