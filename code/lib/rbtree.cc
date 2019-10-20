@@ -679,6 +679,7 @@ void RBTree<T>::remove(T key)
 
     // 查找key对应的节点(node)，找到的话就删除该节点
     if ((node = search(mRoot, key)) != NULL)
+        printf("good here 1\n");
         remove(mRoot, node);
         num--;
 }
