@@ -227,16 +227,18 @@ LIB_H = ../lib/bitmap.h\
 	../lib/libtest.h\
 	../lib/list.h\
 	../lib/sysdep.h\
-	../lib/utility.h
+	../lib/utility.h\
+	../lib/rbtree.h
 
 LIB_C = ../lib/bitmap.cc\
 	../lib/debug.cc\
 	../lib/hash.cc\
 	../lib/libtest.cc\
 	../lib/list.cc\
-	../lib/sysdep.cc
+	../lib/sysdep.cc\
+	../lib/rbtree.cc
 
-LIB_O = bitmap.o debug.o libtest.o sysdep.o
+LIB_O = bitmap.o debug.o libtest.o sysdep.o rbtree.o
 
 
 MACHINE_H = ../machine/callback.h\
