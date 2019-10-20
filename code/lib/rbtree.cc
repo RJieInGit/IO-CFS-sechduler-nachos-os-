@@ -683,6 +683,9 @@ void RBTree<T>::remove(T key)
         remove(mRoot, node);
         num--;
     }
+    else{
+        printf("fatal!! remove fail \n\n\n");
+    }
 }
 
 /*

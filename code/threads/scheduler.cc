@@ -113,7 +113,6 @@ Scheduler::Run (Thread *nextThread, bool finishing)
 {
     
   readyList->inOrder();
-  printf("good here \n");
     readyList->remove(nextThread);
     // vrt= vrt + runtime*decay
     nextThread->vruntime+= 1000*nextThread->decay/(readyList->getNum()+1);
