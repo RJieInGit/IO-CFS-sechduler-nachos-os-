@@ -55,18 +55,18 @@ ThreadTest()
     int numMix =7;
     Thread *t;
     for (int i=0;i<numCPU;i++){
-        string s= sprintf("CPU bound %d",i);
+        char* s= sprintf("CPU bound %d",i);
         t= new Thread(s);
         t->->Fork((VoidFunctionPtr) CPUbound, (void *) 1);
     }
      for (int i=0;i<numIO;i++){
-        string s= sprintf("IO bound %d",i);
+        char* s= sprintf("IO bound %d",i);
         t= new Thread(s);
         t->->Fork((VoidFunctionPtr) IObound, (void *) 1);
     } for (int i=0;i<numMix;i++){
-        string s= sprintf("MIX bound %d",i);
+        char* s= sprintf("MIX bound %d",i);
         t= new Thread(s);
-        t->->Fork((VoidFunctionPtr) MIXbound, (void *) 1);
+        t->Fork((VoidFunctionPtr) MIXbound, (void *) 1);
     }
 }
 
