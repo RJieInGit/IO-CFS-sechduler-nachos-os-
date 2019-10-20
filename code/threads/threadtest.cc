@@ -57,7 +57,7 @@ ThreadTest()
     Thread *t;
     
     for (int i=0;i<numCPU;i++){
-        char s [50];
+        char s[50];
          sprintf(s,"CPUbound");
         t= new Thread(s);
         t->Fork((VoidFunctionPtr) CPUbound, (void *) 1);
