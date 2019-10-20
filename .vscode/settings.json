@@ -15,6 +15,7 @@
         "algorithm": "cpp",
         "__locale": "cpp",
         "string_view": "cpp",
-        "__node_handle": "cpp"
+        "__node_handle": "cpp",
+        "ratio": "cpp"
     }
 }

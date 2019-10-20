@@ -747,6 +747,7 @@ T RBTree<T>::removeMin(){
     if (p != NULL){
         remove(mRoot,p);
         return p->key;
+        num--;
     }
 
     return (T)NULL;
