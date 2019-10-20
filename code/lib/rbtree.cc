@@ -89,15 +89,15 @@ RBTNode<T>* RBTree<T>::search(RBTNode<T>* x, T key) const
 
     if (compare(key, x->key)<0)
         return search(x->left, key);
-    else if(compare(key,x->right)>0)
+    else if(compare(key,x->right->key)>0)
         return search(x->right, key);
     else{
-        RBTNode<T>* l =search(key,x->left);
+        RBTNode<T>* l =search(x->left,key);
         if(l!=NULL)
             return l;
         else
         {
-            return search(key,x->right);
+            return search(x->right,key);
         }
         
     }
