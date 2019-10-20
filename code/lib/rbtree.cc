@@ -5,6 +5,7 @@ RBTree<T>::RBTree(int (*comp)(T x, T y)):mRoot(NULL)
 {
     compare= comp;
     mRoot = NULL;
+    num=0;
 }
 
 /* 
@@ -412,7 +413,7 @@ void RBTree<T>::insert(RBTNode<T>* &root, RBTNode<T>* node)
     while (x != NULL)
     {
         y = x;
-        if (node->key < x->key)
+        if (compare(node->key,x->key)<0)
             x = x->left;
         else
             x = x->right;
@@ -453,6 +454,7 @@ void RBTree<T>::insert(T key)
         return ;
 
     insert(mRoot, z);
+    num++;
 }
 
 /*
@@ -667,6 +669,7 @@ void RBTree<T>::remove(T key)
     // 查找key对应的节点(node)，找到的话就删除该节点
     if ((node = search(mRoot, key)) != NULL)
         remove(mRoot, node);
+        num--;
 }
 
 /*

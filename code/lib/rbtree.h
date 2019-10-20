@@ -68,7 +68,11 @@ class RBTree {
 
         // 打印红黑树
         void print();
+
+        int getNum(){return num;};
     private:
+        int num;      
+         
         int (*compare)(T x, T y);
         // 前序遍历"红黑树"
         void preOrder(RBTNode<T>* tree) const;

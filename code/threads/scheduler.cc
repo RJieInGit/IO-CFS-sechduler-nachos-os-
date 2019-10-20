@@ -23,6 +23,10 @@
 #include "scheduler.h"
 #include "main.h"
 
+
+ static int rbthreadComp(Tread* t1,Thread* t2){
+    return t1->vruntime-t2->vruntime;
+}
 //----------------------------------------------------------------------
 // Scheduler::Scheduler
 // 	Initialize the list of ready but not running threads.
@@ -31,7 +35,7 @@
 
 Scheduler::Scheduler()
 { 
-    readyList = new List<Thread *>; 
+    readyList = new RBTree<Thread *>(rbthreadComp); 
     toBeDestroyed = NULL;
 } 
 
@@ -60,7 +64,8 @@ Scheduler::ReadyToRun (Thread *thread)
     DEBUG(dbgThread, "Putting thread on ready list: " << thread->getName());
 
     thread->setStatus(READY);
-    readyList->Append(thread);
+    // insert it seld into the rbtree readly list
+    readyList->insert(this);
 }
 
 //----------------------------------------------------------------------
@@ -79,7 +84,10 @@ Scheduler::FindNextToRun ()
     if (readyList->IsEmpty()) {
 	return NULL;
     } else {
-    	return readyList->RemoveFront();
+        //remove the thread with the smallest vruntime from rbtree
+        Thread* t = kernel->readyList->minimum();
+    	kernel->readyList->remove(t);
+        return t;
     }
 }
 
@@ -103,7 +111,8 @@ Scheduler::FindNextToRun ()
 void
 Scheduler::Run (Thread *nextThread, bool finishing)
 {
-    
+    // vrt= vrt + runtime*decay
+    nextThread->vruntime+= 1000*nextThread->decay/kernel->readyList->getNum();
     Thread *oldThread = kernel->currentThread;
     
     ASSERT(kernel->interrupt->getLevel() == IntOff);
