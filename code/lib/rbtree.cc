@@ -87,10 +87,20 @@ RBTNode<T>* RBTree<T>::search(RBTNode<T>* x, T key) const
     if (x==NULL || x->key==key)
         return x;
 
-    if (key < x->key)
+    if (compare(key, x->key)<0)
         return search(x->left, key);
-    else
+    else if(compare(key,x->right)>0)
         return search(x->right, key);
+    else{
+        RBTNode<T>* l =search(key,x->left);
+        if(l!=NULL)
+            return l;
+        else
+        {
+            return search(key,x->right);
+        }
+        
+    }
 }
 
 template <class T>
