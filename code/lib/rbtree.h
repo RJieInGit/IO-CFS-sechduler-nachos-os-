@@ -62,7 +62,8 @@ class RBTree {
 
         // 删除结点(key为节点键值)
         void remove(T key);
-
+        
+        T removeMin();
         // 销毁红黑树
         void destroy();
 

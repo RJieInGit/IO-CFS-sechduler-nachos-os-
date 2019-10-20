@@ -85,7 +85,7 @@ Scheduler::FindNextToRun ()
 	return NULL;
     } else {
         //remove the thread with the smallest vruntime from rbtree
-        Thread* t = readyList->minimum();
+        Thread* t = readyList->removeMin();
         printf("next thread to run vrtime : %d \n",t->vruntime);
         return t;
     }
@@ -113,12 +113,11 @@ Scheduler::Run (Thread *nextThread, bool finishing)
 {
     
   readyList->inOrder();
-    readyList->remove(nextThread);
+   // readyList->remove(nextThread);
     // vrt= vrt + runtime*decay
     nextThread->vruntime+= 1000*nextThread->decay/(readyList->getNum()+1);
     //set the time slice for this thread according to its decay.
-    printf("after remove \n");
-      readyList->inOrder();
+   
     kernel->alarm->timer->SetInterrupt(1000*nextThread->decay/(readyList->getNum()+1));
     Thread *oldThread = kernel->currentThread;
     
