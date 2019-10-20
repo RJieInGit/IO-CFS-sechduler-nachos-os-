@@ -741,6 +741,7 @@ void RBTree<T>::print()
     if (mRoot != NULL)
         print(mRoot, mRoot->key, 0);
 }
+
 template <class T>
 T RBTree<T>::removeMin(){
      RBTNode<T> *p = minimum(mRoot);
