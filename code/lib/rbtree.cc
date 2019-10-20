@@ -414,7 +414,7 @@ void RBTree<T>::insert(RBTNode<T>* &root, RBTNode<T>* node)
     while (x != NULL)
     {
         y = x;
-        if (compare(node->key,x->key)<0)
+        if (compare(node->key,x->key)>0)
             x = x->left;
         else
             x = x->right;
