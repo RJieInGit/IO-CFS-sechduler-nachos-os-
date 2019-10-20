@@ -91,9 +91,11 @@ Scheduler::FindNextToRun ()
         Thread* t = readyList->removeMin();
         // readyList->remove(nextThread);
     // vrt= vrt + runtime*decay
+    if(t!=NULL){
         t->vruntime+= 1000*t->decay/(readyList->getNum()+1);
     //set the time slice for this thread according to its decay.
         printf("next thread to run vrtime : %d \n",t->vruntime);
+    }
         return t;
     }
 }
