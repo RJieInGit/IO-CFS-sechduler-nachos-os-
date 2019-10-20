@@ -106,7 +106,9 @@ printf("%d , %d \n",(Thread*)(x->key)->vruntime,(Thread*)key->vruntime);
 template <class T>
 RBTNode<T>* RBTree<T>::search(T key) 
 {
+    printf("good here 3\n");
     search(mRoot, key);
+    printf("good here 4\n");
 }
 
 /*
