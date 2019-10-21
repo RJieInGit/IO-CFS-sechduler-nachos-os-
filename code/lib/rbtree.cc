@@ -165,7 +165,7 @@ T RBTree<T>::maximum()
     return (T)NULL;
 }
 
-/
+
 template <class T>
 RBTNode<T>* RBTree<T>::successor(RBTNode<T> *x)
 {
