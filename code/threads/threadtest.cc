@@ -18,6 +18,9 @@ void IObound(int arg){
     io::iowrite(0);
     io::ioread(0);
     io::iowrite(1);
+    for(int i=0;i<150;i++){
+        kernel->interrupt->OneTick();
+    }
     io::iowrite(2);
     io::ioread(1);
     return;
