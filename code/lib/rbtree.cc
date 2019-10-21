@@ -335,7 +335,6 @@ void RBTree<T>::insertFixUp(RBTNode<T>* &root, RBTNode<T>* node)
             rb_set_red(gparent);
             leftRotate(root, gparent);
         }
-    }
     rb_set_black(root);
 }
 
